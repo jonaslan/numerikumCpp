@@ -1,0 +1,12 @@
+Importing data file:
+
+1. The fstream member good() checks for three fail conditions:
+	- if the imported value cannot be interpreted as its destination type (a string is imported but a double was expected).
+	- There is something wrong with the file, for instance: it's unreadable or write/read-only.
+	- the stream reaches an end of file bit.
+
+2. eof stands for "end of file". The !import.eof() stands for not end of file named "import".
+
+3. Because the >> operator relation reads right to left, a is read last.
+
+4. If ++i was used instead of i++ the i variable would be incremented before the a variable was set, the index in a would be larger than in the corresponding b and c.

@@ -1,0 +1,7 @@
+# Results of long run (t_max =10e-7) for the parallel code
+Dopr853: 26705354	time: 109.595
+BS: 2818053	time:307.228
+
+# Total execution time coincides with execution time of the longest thread, as expected
+307.228
+

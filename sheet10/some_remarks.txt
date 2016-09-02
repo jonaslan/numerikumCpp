@@ -1,0 +1,50 @@
+In a machine with the following characteristics:
+
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                8
+On-line CPU(s) list:   0-7
+Thread(s) per core:    2
+Core(s) per socket:    4
+Socket(s):             1
+NUMA node(s):          1
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 60
+Stepping:              3
+CPU MHz:               800.000
+BogoMIPS:              4788.94
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              6144K
+NUMA node0 CPU(s):     0-7
+
+Some of the execution times (just order of magnitude) of the programs of this exercise sheet are included here (very rough benchmarking using system functions):
+
+- diffusion.cpp compiled without OPENMP (serial execution) ----> ~32 s
+
+
+- diffusion.cpp compiled with OPENMP -----> ~0.02 s
+
+
+- diff_mpi.cpp using the 8 processors (4 cores, two virtual units per core)
+
+CPU time (in sec) taken by process 5: 6.38
+CPU time (in sec) taken by process 7: 6.39
+CPU time (in sec) taken by process 6: 6.32
+CPU time (in sec) taken by process 3: 6.4
+CPU time (in sec) taken by process 4: 6.4
+CPU time (in sec) taken by process 2: 6.41
+CPU time (in sec) taken by process 1: 6.4
+CPU time (in sec) taken by process 0: 0.12
+
+	Therefore, ~6.5-7 s
+
+
+Conclusions: if everything is correct in our calculations (and apparently, it is) and the code is as much efficient as possible in every case, the reduction in time from the non-parallel code to the MPI code seems very consistent (~6 times faster, for 8 cores instead of 1). What is striking is the difference between the omp code and the others, since it is ~600 times faster than the non-parallel code and ~120 times faster than the MPI. How is it possible to explain such a difference?
+
+It is also worth noting that this is not a proper benchmark, but only meant as an orientation.
+

@@ -1,0 +1,4 @@
+Check of the deviation of the magnitude of velocity with time:
+
+- Step-size 0.01-> No noticiable change up to tmax=10^6.
+- Step-size 0.1 -> approximately at t=3x10^5 (i.e. 3x10^6 steps) a deviation of 1 % is observed.

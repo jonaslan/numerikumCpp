@@ -1,0 +1,11 @@
+# Two particles but no interaction between them
+
+Both particles describe epitrochoids centered at x=0, y=0 and completely determined from the initial conditions given to each particle and independent of each other.
+
+# Two particles with interaction
+
+As we increase interaction, the centers of the epitrochoids (if they can still be called epitrochoids) become spatially separated (no longer x=0 y=0), but keeping the center of mass of the system constant (the one determined by the initial conditions). In our run for tmax=500000, it looks like the two particles are slightly biased to different parts of the system, i.e. they restrict their motion preferently to a certain part of the system, decreasing the overlap of the distributions. However, in the test for tmax=10^(7) this is not observed so clearly, which might mean that as time passes the center of rotation of the particles oscillate as well along the center of mass of the system.
+
+# Comparison between single particle case and interaction between particles
+
+The very symmetric pattern observed for the single particle case is destroyed when interaction is considered since the particle has to accommodate to the motion of the other particle, specially at earlier times of the simulation.

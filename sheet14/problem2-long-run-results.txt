@@ -1,0 +1,12 @@
+# Results of comparison between solvers Dopr853 and BS (non-parallel code). #steps and execution time using clock()
+# t_max = 1e7, h1 = 0.01, atol = rtol=1e-10
+Dopr853: 26705354	time: 109.82
+BS: 2818053	time:298.57
+
+# So StepperDopr853 needs more integration steps but is approximately three times faster. In comparison, the Runge-Kutta method in problem 1 would use 100*10^(7)=10^9 steps for h=0.01, which is slightly bigger than the number of steps for Dopr853 and approximately 1000 times more than StepperBS.
+
+Possible reasons: Dopr853, which is based on Dormand-Prince method, is a Runge-Kutta-like method that uses adaptive step-size control. That might decrease the number of steps required for a certain required accuracy, but in principle not a dramatic decrease is expected (in this case, we use approximately 4 times less steps).
+
+On the contrary, BS (Bulirsch-Stoer) method uses a completely different principle, the Richardson extrapolation. In this kind of approach, the stepper uses a series of macroscopic steps which are in turn subdivided in much smaller steps for extrapolation.
+
+The number of "macroscopic steps" is typically much smaller than those required for the RK-based methods, but each of these steps requires lots of computation in order to do the extrapolation to h->0, which explains why the execution time for the BS method is much larger than Dopr853 but the number of integration steps taken (which would be the "macroscopic" steps) is much smaller.
